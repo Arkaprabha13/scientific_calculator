@@ -229,14 +229,30 @@ def safe_eval(expr, scientific=False):
 def apply_custom_style():
     st.markdown("""
         <style>
+        /* Apply style to the button */
         .stButton>button {
-            width: 100%;
-            font-weight: bold;
-            background-color: #4CAF50;
-            color: white;
+            width: 100%;  /* Make the button occupy full width */
+            padding: 1rem;  /* Add padding to make the button more clickable */
+            font-size: 1.25rem;  /* Increase font size for better readability */
+            font-weight: bold;  /* Make the text bold */
+            background-color: #4CAF50;  /* Green background */
+            color: white;  /* White text color */
+            border-radius: 0.5rem;  /* Rounded corners */
+            transition: background-color 0.3s ease;  /* Smooth transition for hover effect */
+        }
+        
+        /* Hover effect */
+        .stButton>button:hover {
+            background-color: #45a049;  /* Darker green on hover */
+        }
+        
+        /* Optional: Style for the button container */
+        .stButton {
+            margin-top: 10px;  /* Add space between buttons */
         }
         </style>
     """, unsafe_allow_html=True)
+
 
 
 # ============================ #
