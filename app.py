@@ -133,12 +133,13 @@ def handle_button_input():
             clear_expression()
 
 def create_button_grid():
-    layout = [
-        ["7", "8", "9", "+", "(", ")"],
-        ["4", "5", "6", "-", "π", "e"],
-        ["1", "2", "3", "*", "sqrt(", "log("],
-        ["0", ".", "^", "/", "←", "C"]
-    ]
+   layout = [
+    ["7", "8", "9", "ADD", "(", ")"],
+    ["4", "5", "6", "SUB", "π", "e"],
+    ["1", "2", "3", "MUL", "sqrt(", "log("],
+    ["0", ".", "^", "DIV", "←", "C"]
+]
+
     for row in layout:
         cols = st.columns(6)
         for i, btn in enumerate(row):
