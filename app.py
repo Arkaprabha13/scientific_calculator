@@ -133,12 +133,11 @@ def handle_button_input():
             clear_expression()
 
 def create_button_grid():
-   layout = [
-    ["7", "8", "9", "ADD", "(", ")"],
-    ["4", "5", "6", "SUB", "π", "e"],
-    ["1", "2", "3", "MUL", "sqrt(", "log("],
-    ["0", ".", "^", "DIV", "←", "C"]
-]
+    layout = [
+    ["7", "8", "9", "&#43;", "(", ")"],
+    ["4", "5", "6", "&#45;", "π", "e"],
+    ["1", "2", "3", "&#42;", "sqrt(", "log("],
+    ["0", ".", "^", "&#47;", "←", "C"]] 
 
     for row in layout:
         cols = st.columns(6)
@@ -234,9 +233,12 @@ def apply_custom_style():
         .stButton>button {
             width: 100%;  /* Make the button occupy full width */
             padding: 1rem;  /* Add padding to make the button more clickable */
-            font-size: 1.25rem;  /* Increase font size for better readability */
-            font-weight: bold;  /* Make the text bold */
-            background-color: #4CAF50;  /* Green background */
+            font-size: 18px;
+            font-weight: bold;
+            margin: 2px;
+            # width: 60px;
+            height: 50px;
+            background-color: #333333;  /* Green background */
             color: white;  /* White text color */
             border-radius: 0.5rem;  /* Rounded corners */
             transition: background-color 0.3s ease;  /* Smooth transition for hover effect */
