@@ -138,23 +138,51 @@ button_config = [
     [("0", "0"), (".", "."), ("^", "**"), ("/", "/"), ("←", "backspace"), ("C", "clear")]
 ]
 
+# def create_button_grid():
+#     layout = [
+#     ["7", "8", "9", "+", "(", ")"],
+#     ["4", "5", "6", "-", "π", "e"],
+#     ["1", "2", "3", "*", "sqrt(", "log("],
+#     ["0", ".", "^", "/", "←", "C"]] 
+
+#     for row in layout:
+#         cols = st.columns(6)
+#         for i, btn in enumerate(row):
+#             with cols[i]:
+#                 if btn == "←":
+#                     st.button(btn, on_click=backspace)
+#                 elif btn == "C":
+#                     st.button(btn, on_click=clear_expression)
+#                 else:
+#                     st.button(btn, on_click=update_expression, args=(btn,))
 def create_button_grid():
     layout = [
-    ["7", "8", "9", "+", "(", ")"],
-    ["4", "5", "6", "-", "π", "e"],
-    ["1", "2", "3", "*", "sqrt(", "log("],
-    ["0", ".", "^", "/", "←", "C"]] 
+        ["7", "8", "9", "&#43;", "(", ")"],
+        ["4", "5", "6", "&#45;", "π", "e"],
+        ["1", "2", "3", "&#42;", "sqrt(", "log("],
+        ["0", ".", "^", "&#47;", "←", "C"]
+    ]
+
+    # Map the display text (entity) to actual value
+    input_mapping = {
+        "&#43;": "+",
+        "&#45;": "-",
+        "&#42;": "*",
+        "&#47;": "/"
+    }
 
     for row in layout:
         cols = st.columns(6)
         for i, btn in enumerate(row):
             with cols[i]:
                 if btn == "←":
-                    st.button(btn, on_click=backspace)
+                    st.button("←", on_click=backspace)
                 elif btn == "C":
-                    st.button(btn, on_click=clear_expression)
+                    st.button("C", on_click=clear_expression)
                 else:
-                    st.button(btn, on_click=update_expression, args=(btn,))
+                    # Use mapped input value if available, else use btn itself
+                    input_value = input_mapping.get(btn, btn)
+                    st.button(btn, on_click=update_expression, args=(input_value,))
 
 
 # ============================ #
